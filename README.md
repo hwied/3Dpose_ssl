@@ -52,6 +52,45 @@ tools/: python and matlab code
 5. MATLAB
 6. Opencv-python
 
+#### Dependencies
+Install a virtualenv.
+The Makefile.config is already configured therefore.
+
+Install the following dependencies beforehand
+
+```
+sudo apt-get install libhdf5-dev libhdf5-serial-devlibhdf5-doc
+sudo apt-get install libboost-dev libboost-doc
+sudo apt-get install libgflags-dev
+sudo apt-get install libgoogle-glog-dev
+sudo apt-get install libopenblas-dev
+sudo apt-get install libopencv-dev
+sudo apt-get install libleveldb
+sudo apt-get install libleveldb-dev
+sudo apt-get install liblmdb-dev liblmdb++-dev
+sudo apt-get install protobuf-compiler
+sudo apt-get install libsnappy-dev
+```
+In case of the follwing error:
+```
+/usr/bin/ld: cannot find -lboost_system
+/usr/bin/ld: cannot find -lboost_filesystem
+/usr/bin/ld: cannot find -lhdf5_hl
+/usr/bin/ld: cannot find -lhdf5
+/usr/bin/ld: cannot find -lboost_thread
+/usr/bin/ld: cannot find -lboost_python
+```
+It might be necessary to do the following:
+```
+cd /usr/lib/x86_64-linux-gnu/
+sudo ln -s libhdf5_serial.so libhdf5.so
+sudo ln -s libhdf5_serial_hl.so libhdf5_hl.so
+sudo ln -s libboost_system.so.1.65.1 libboost_system.so
+sudo ln -s libboost_filesystem.so.1.65.1 libboost_filesystem.so
+sudo ln -s libboost_thread.so.1.65.1 libboost_thread.so
+sudo ln -s libboost_python-py27.so.1.65.1 libboost_python.so
+```
+
 #### Installation
 
 1. Build 3Dssl Caffe

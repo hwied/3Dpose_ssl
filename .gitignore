@@ -59,3 +59,4 @@ venv.bak/
 caffe-3dssl/cmake/
 data/
 
+caffe-3dssl/.build*
